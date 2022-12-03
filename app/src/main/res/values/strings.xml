@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MEU IF ID</string>
+    <string name="entrar">Entrar</string>
+    <string name="txt_cadastro">Clique aqui para se cadastrar</string>
+    <string name="titulo_cad">Cadastro</string>
+    <string name="titulo_cadastrar">Cadastrar</string>
+    <string name="titulo_categoria">Categoria</string>
+</resources>
