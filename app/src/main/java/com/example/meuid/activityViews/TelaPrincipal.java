@@ -68,39 +68,9 @@ public class TelaPrincipal extends AppCompatActivity {
         textCPF.setText(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.CPF)));
         textUnidade.setText(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.CAMPUS)));
         imageView.setImageBitmap(decodedByte);
-
-        //imageView.setText(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.CAMPUS)));
        // textValidade.setText(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.)));
         textValidade.setText("00/00/0000");
-        //imageView.setImageDrawable(foto);
 
-        /*
-
-        Intent intent = getIntent();
-        int temp = intent.getIntExtra("int_value", 0);
-        //alterar = (Button)findViewById(R.id.button2);
-
-        cursor = crud.carregaDadoById(temp);
-        textNome
-        -----
-
-        codigo = this.getIntent().getStringExtra("codigo");
-
-        crud = new BancoController(getBaseContext());
-
-        livro = (EditText)findViewById(R.id.editText4);
-        autor = (EditText)findViewById(R.id.editText5);
-        editora = (EditText)findViewById(R.id.editText6);
-
-        alterar = (Button)findViewById(R.id.button2);
-
-        cursor = crud.carregaDadoById(Integer.parseInt(codigo));
-        livro.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.TITULO)));
-        autor.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.AUTOR)));
-        editora.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.EDITORA)));
-
-    }
-         */
         code_qr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,34 +93,3 @@ public class TelaPrincipal extends AppCompatActivity {
 
 
 }
-/*
-
-        //alterar = (Button)findViewById(R.id.button2);
-
-
-        textNome
-        -----
-
-        codigo = this.getIntent().getStringExtra("codigo");
-
-        Bitmap raw;
-        byte[] fotoArray = cursor.getColumnIndexOrThrow(DBHelper.IMAGEM);
-        ImageView foto = imageView.findViewById(R.id.imageView);
-        if(fotoArray!=null) {
-            raw  = BitmapFactory.decodeByteArray(fotoArray,0,fotoArray.length);
-            foto.setImageBitmap(raw);
-        }
-
-
-         //String imagemBanco = cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.IMAGEM));
-        //imageBytes = Base64.decode(imagemBanco, Base64.DEFAULT);
-       // Bitmap imagemDecode = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-        //imageView.setImageBitmap(imagemDecode);
-
-
-                           Bitmap bitmap = ((BitmapDrawable)imgSelected.getDrawable()).getBitmap();
-                    ByteArrayOutputStream saida = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.PNG,100,saida);
-                    img = saida.toByteArray();
-                    String fotoSaida = Base64.encodeToString(img, Base64.DEFAULT);
- */

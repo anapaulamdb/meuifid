@@ -103,7 +103,6 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("select * from " + TABLE_NAME + " where " + EMAIL + " = ? and " + SENHA + " = ?", new String[]{email, senha});
         //cod = db.rawQuery("select " + ID + " from "+ TABLE_NAME + " where "+ EMAIL + " = ? and "+SENHA+" = ?", new String[] {email, senha});
         if (cursor.getCount() > 0) {
-            //carregaDadoById(cursor.getColumnIndex("id"));
             return true;
         } else {
             return false;
