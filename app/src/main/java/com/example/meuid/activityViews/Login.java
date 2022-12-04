@@ -3,6 +3,7 @@ package com.example.meuid.activityViews;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -49,7 +50,12 @@ public class Login extends AppCompatActivity {
                             Intent intent = new Intent(Login.this, TelaAdm.class);
                             startActivity(intent);
                         } else {
+                            //Integer codigo = db.getIdAluno(email1, senha1);
+                            Cursor cursor = db.getIdAluno(email1, senha1);
+
+                            Integer codigo = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.ID));
                             Intent intent = new Intent(Login.this, TelaPrincipal.class);
+                            intent.putExtra("codigo", codigo);
                             startActivity(intent);
                         }
                         Toast.makeText(Login.this, "Login bem sucedido.", Toast.LENGTH_SHORT).show();

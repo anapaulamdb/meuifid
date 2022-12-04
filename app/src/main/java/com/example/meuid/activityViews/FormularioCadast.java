@@ -11,6 +11,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -87,36 +88,7 @@ public class FormularioCadast extends AppCompatActivity {
                 startActivityForResult(intent, GALLERY_IMAGES);
             }
         });
-        /*
-        bt_cadastrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //if (!(edit_nome.getText().toString().equals("") || cpf.getText().toString().equals("") || matricula.getText().toString().equals("") || curso.getText().toString().equals("") || edit_email.getText().toString().equals("") || edit_senha.getText().toString().equals(""))){
-                // || imageView4.getText().toString().equals(""))) {
-                String resultado;
-                DBHelper crud = new DBHelper(getBaseContext());
-                Bitmap bitmap = ((BitmapDrawable)imgSelected.getDrawable()).getBitmap();
-                ByteArrayOutputStream saida = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG,100,saida);
-                byte[] img = saida.toByteArray();
 
-                System.out.println(edit_nome);
-                System.out.println(cpf);
-                System.out.println(matricula);
-
-                //SALVA INFOS NO BANCO
-                //resultado = crud.insereDado(edit_nome.getText().toString(), Integer.valueOf(matricula.getText().toString()), cpf.getText().toString(), curso.getText().toString(), unidade.getText().toString(), edit_email.getText().toString(), edit_senha.getText().toString(), String.valueOf(img), 0);
-                //Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
-                //limpaFormulario();
-
-                /*
-                Intent intent = new Intent(FormularioCadast.this, Login.class);
-                startActivity(intent);
-
-
-            }
-        });
-*/
         bt_cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,11 +106,16 @@ public class FormularioCadast extends AppCompatActivity {
                     ByteArrayOutputStream saida = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.PNG,100,saida);
                     img = saida.toByteArray();
+                    String fotoSaida = Base64.encodeToString(img, Base64.DEFAULT);
 
-                    resultado = crud.insereDado(edit_nome.getText().toString(), Integer.valueOf(matricula.getText().toString()), cpf.getText().toString(), curso.getText().toString(), unidade.getText().toString(), edit_email.getText().toString(), edit_senha.getText().toString(), String.valueOf(img), 0);
+
+                    resultado = crud.insereDado(edit_nome.getText().toString(), Integer.valueOf(matricula.getText().toString()), cpf.getText().toString(), curso.getText().toString(), unidade.getText().toString(), edit_email.getText().toString(), edit_senha.getText().toString(), fotoSaida, 0);
                     Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
                     limpaFormulario();
                     abrirDialogo();
+
+                    Intent intent = new Intent(FormularioCadast.this, Login.class);
+                    startActivity(intent);
                 }
             }
         });
