@@ -49,7 +49,7 @@ public class TelaPrincipal extends AppCompatActivity {
         textMatricula = (TextView) findViewById(R.id.textMatricula);
         textCPF = (TextView) findViewById(R.id.textCPF);
         textUnidade = (TextView) findViewById(R.id.textUnidade);
-        textValidade = (TextView) findViewById(R.id.textValidade);
+
         imageView = (ImageView) findViewById(R.id.imageView);
 
         DBHelper db = new DBHelper(getBaseContext());
@@ -69,7 +69,7 @@ public class TelaPrincipal extends AppCompatActivity {
         textUnidade.setText(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.CAMPUS)));
         imageView.setImageBitmap(decodedByte);
        // textValidade.setText(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.)));
-        textValidade.setText("00/00/0000");
+        //textValidade.setText("00/00/0000");
 
         code_qr.setOnClickListener(new View.OnClickListener() {
             @Override

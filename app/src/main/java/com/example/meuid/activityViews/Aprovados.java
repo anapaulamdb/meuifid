@@ -23,6 +23,8 @@ public class Aprovados extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+
+
         voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

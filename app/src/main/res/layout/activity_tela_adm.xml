@@ -102,34 +102,6 @@
         app:layout_constraintTop_toTopOf="@id/containerCard_ADM"
         app:layout_constraintVertical_bias="0.557" />
 
-    <TextView
-        android:id="@+id/txtCargo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="176dp"
-        android:text="Cargo"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/containerCard_ADM"
-        app:layout_constraintEnd_toEndOf="@+id/containerCard_ADM"
-        app:layout_constraintLeft_toLeftOf="@id/containerCard_ADM"
-        app:layout_constraintTop_toTopOf="@id/containerCard_ADM"
-        app:layout_constraintVertical_bias="0.768" />
-
-    <TextView
-        android:id="@+id/txtCargo_"
-        android:layout_width="184dp"
-        android:layout_height="18dp"
-        android:text=" "
-        android:textColor="@color/black"
-
-        app:layout_constraintBottom_toBottomOf="@+id/containerCard_ADM"
-        app:layout_constraintEnd_toEndOf="@+id/containerCard_ADM"
-        app:layout_constraintHorizontal_bias="0.826"
-        app:layout_constraintStart_toStartOf="@+id/containerCard_ADM"
-        app:layout_constraintTop_toBottomOf="@+id/textNome"
-        app:layout_constraintVertical_bias="0.754" />
-
     <View
         android:id="@+id/containerComponents_CAT"
         style="@style/Editor_txt"
@@ -192,36 +164,18 @@
         style="@style/Editor_txt"
         android:layout_width="316dp"
         android:layout_height="75dp"
-        android:gravity="center"
         android:drawableRight="@drawable/ic_pendente"
+        android:gravity="center"
         android:text="PENDENTES"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/containerComponents_CAT"
         app:layout_constraintEnd_toEndOf="@+id/containerComponents_CAT"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="@+id/containerComponents_CAT"
         app:layout_constraintTop_toBottomOf="@+id/aprovados_adm"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/expirados_adm"
-        style="@style/Editor_txt"
-        android:layout_width="316dp"
-        android:layout_height="75dp"
-        android:gravity="center"
-        android:drawableRight="@drawable/ic_block"
-        android:text="EXPIRADOS"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/containerComponents_CAT"
-        app:layout_constraintEnd_toEndOf="@+id/containerComponents_CAT"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="@+id/containerComponents_CAT"
-        app:layout_constraintTop_toBottomOf="@+id/pendente_adm"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.367" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

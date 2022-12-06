@@ -12,8 +12,9 @@ public class Aluno {
     Integer id;
     Integer aprovado;
 
-    public Aluno(String nome, Integer matricula, String cpf, String curso, String campus, String email, String senha, String imagem, Integer id, Integer aprovado) {}
     public Aluno(){}
+    public Aluno(String nome, Integer matricula, String cpf, String curso, String campus, String email, String senha, String imagem, Integer id, Integer aprovado) {}
+
 
     public String getNome() {
         return nome;

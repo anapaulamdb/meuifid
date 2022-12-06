@@ -46,14 +46,13 @@ public class Login extends AppCompatActivity {
                 else{
                     Boolean checkuserpass = db.checkEmailSenha(email1, senha1);
                     if(checkuserpass==true){
+                        Cursor cursor = db.getIdAluno(email1, senha1);
+                        Integer codigo = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.ID));
                         if(email1.equals("admin")) {
                             Intent intent = new Intent(Login.this, TelaAdm.class);
+                            intent.putExtra("codigo", codigo);
                             startActivity(intent);
                         } else {
-                            //Integer codigo = db.getIdAluno(email1, senha1);
-                            Cursor cursor = db.getIdAluno(email1, senha1);
-
-                            Integer codigo = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.ID));
                             Intent intent = new Intent(Login.this, TelaPrincipal.class);
                             intent.putExtra("codigo", codigo);
                             startActivity(intent);

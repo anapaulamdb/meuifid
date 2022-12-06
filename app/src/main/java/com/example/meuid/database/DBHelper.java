@@ -5,6 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.ListView;
+
+import com.example.meuid.R;
+import com.example.meuid.bean.Aluno;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "meuifId-v1.db";
@@ -72,6 +79,53 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    public Cursor carregaDadosAprovados() {
+        Cursor cursor;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] campos = {DBHelper.NOME, DBHelper.MATRICULA, DBHelper.CPF, DBHelper.CURSO, DBHelper.CAMPUS, DBHelper.EMAIL, DBHelper.SENHA, DBHelper.IMAGEM, DBHelper.APROVADO};
+        String where = DBHelper.APROVADO + "=" + 1;
+        cursor = db.query(DBHelper.TABLE_NAME, campos, where, null, null, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        db.close();
+        return cursor;
+    }
+
+    public Cursor carregaDadosPendentes() {
+        Cursor cursor;
+        String[] campos = {DBHelper.NOME, DBHelper.MATRICULA};
+        String where = DBHelper.APROVADO + "=" + 0;
+        SQLiteDatabase db = this.getReadableDatabase();
+        cursor = db.query(DBHelper.TABLE_NAME, campos, where, null, null, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        db.close();
+        return cursor;
+    }
+    // textNome.setText(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.NOME)));
+    /*
+    public List<Aluno> buscaAlunosPendentes(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sql = "SELECT * FROM aluno WHERE aprovado = 0";
+        Cursor c = db.rawQuery(sql, null);
+
+        List<Aluno> alunos = new ArrayList<Aluno>();
+
+        while (c.moveToNext()){
+            Aluno al = new Aluno();
+            al.setNome();
+            al.setMatricula();
+            al.setNome(String.valueOf(c.getColumnIndex(DBHelper.NOME)));
+            al.setMatricula(Integer.valueOf(c.getString(c.getColumnIndex(DBHelper.MATRICULA))));
+        }
+        return alunos;
+    }
+*/
+
     public Cursor carregaDadoById(int id) {
         Cursor cursor;
         String[] campos = {DBHelper.NOME, DBHelper.MATRICULA, DBHelper.CPF, DBHelper.CURSO, DBHelper.CAMPUS, DBHelper.EMAIL, DBHelper.SENHA, DBHelper.IMAGEM, DBHelper.APROVADO};
@@ -99,9 +153,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Boolean checkEmailSenha(String email, String senha) {
         SQLiteDatabase db = this.getWritableDatabase();
-        //Cursor cod;
         Cursor cursor = db.rawQuery("select * from " + TABLE_NAME + " where " + EMAIL + " = ? and " + SENHA + " = ?", new String[]{email, senha});
-        //cod = db.rawQuery("select " + ID + " from "+ TABLE_NAME + " where "+ EMAIL + " = ? and "+SENHA+" = ?", new String[] {email, senha});
+
         if (cursor.getCount() > 0) {
             return true;
         } else {
@@ -117,5 +170,15 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         db.close();
         return cursor;
+    }
+
+    public void listarDados() {
+        try {
+            SQLiteDatabase db = this.getWritableDatabase();
+            Cursor cursor = db.rawQuery("select nome, matricula from aluno where aprovado = 0", null);
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
