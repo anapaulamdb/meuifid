@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="meuif">
+        <item name="android:textSize">48sp</item>
+        <item name="android:textColor">@color/verdefundo</item>
+        <item name="android:fontFamily">Baloo Bhaijaan</item>
+        <item name="android:lineHeight">72sp</item>
+    </style>
+</resources>

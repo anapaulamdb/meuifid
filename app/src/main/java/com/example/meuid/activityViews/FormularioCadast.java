@@ -46,26 +46,26 @@ public class FormularioCadast extends AppCompatActivity {
     ImageView uploadImg, photo;
     private final int GALLERY_IMAGES = 1;
     private final int PERMISSION_REQUEST = 2;
-    String fotoStringFinal = "";
+   // String fotoStringFinal = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_cadast);
 
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
         // imagem
-        uploadImg = findViewById(R.id.uploadImage);
-        photo = findViewById(R.id.imgSelected);
+//        uploadImg = findViewById(R.id.uploadImage);
+//        photo = findViewById(R.id.imgSelected);
 
         // database
         edit_nome = (EditText) findViewById(R.id.edit_nome);
-        cpf = (EditText) findViewById(R.id.cpf);
+        //cpf = (EditText) findViewById(R.id.cpf);
         matricula = (EditText) findViewById(R.id.matricula);
-        unidade = (EditText) findViewById(R.id.unidade);
+       // unidade = (EditText) findViewById(R.id.unidade);
         edit_email = (EditText) findViewById(R.id.edit_email);
         edit_senha = (EditText) findViewById(R.id.edit_senha);
-        curso = (EditText) findViewById(R.id.curso);
+        //curso = (EditText) findViewById(R.id.curso);
         uploadImage = (ImageView) findViewById(R.id.uploadImage);
         imgSelected = (ImageView) findViewById(R.id.imgSelected);
         bt_cadastrar = (Button) findViewById(R.id.bt_cadastrar);

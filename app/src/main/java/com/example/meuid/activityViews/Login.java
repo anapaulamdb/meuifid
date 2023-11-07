@@ -28,7 +28,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         email = (EditText) findViewById(R.id.email);
         senha = (EditText) findViewById(R.id.senha);
-        button = (Button) findViewById(R.id.bt_entrar);
+        button = (Button) findViewById(R.id.bt_id);
         db = new DBHelper(this);
 
         getSupportActionBar().hide();
@@ -45,7 +45,7 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT).show();
                 else{
                     Boolean checkuserpass = db.checkEmailSenha(email1, senha1);
-                    if(checkuserpass==true){
+                    if(checkuserpass){
                         Cursor cursor = db.getIdAluno(email1, senha1);
                         Integer codigo = cursor.getInt(cursor.getColumnIndexOrThrow(DBHelper.ID));
                         if(email1.equals("admin")) {
@@ -53,7 +53,7 @@ public class Login extends AppCompatActivity {
                             intent.putExtra("codigo", codigo);
                             startActivity(intent);
                         } else {
-                            Intent intent = new Intent(Login.this, TelaPrincipal.class);
+                            Intent intent = new Intent(Login.this, Home.class);
                             intent.putExtra("codigo", codigo);
                             startActivity(intent);
                         }
