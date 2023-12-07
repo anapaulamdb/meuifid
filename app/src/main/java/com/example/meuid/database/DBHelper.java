@@ -19,9 +19,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String ID = "id";
     public static final String NOME = "nome";
     public static final String CPF = "cpf";
-    public static final String MATRICULA = "matricula";
     public static final String CURSO = "curso";
-    public static final String CAMPUS = "campus";
+    public static final String MATRICULA = "matricula";
     public static final String EMAIL = "email";
     public static final String SENHA = "senha";
     public static final String IMAGEM = "imagem";
@@ -37,10 +36,9 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("create table " + TABLE_NAME + " ("
                 + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + NOME + " TEXT NOT NULL, "
-                + MATRICULA + " INTEGER NOT NULL, "
                 + CPF + " TEXT NOT NULL, "
                 + CURSO + " TEXT NOT NULL, "
-                + CAMPUS + " TEXT, "
+                + MATRICULA + " INTEGER NOT NULL, "
                 + EMAIL + " TEXT NOT NULL, "
                 + SENHA + " TEXT NOT NULL, "
                 + IMAGEM + " TEXT,"
@@ -54,16 +52,15 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public String insereDado(String nome, Integer matricula, String cpf, String curso, String campus, String email, String senha, String imagem, Integer aprovado) {
+    public String insereDado(String nome, String cpf, String curso, Integer matricula, String email, String senha, String imagem, Integer aprovado) {
         ContentValues valores = new ContentValues();
         SQLiteDatabase db = this.getWritableDatabase();
         long resultado;
 
         valores.put(DBHelper.NOME, nome);
-        valores.put(DBHelper.MATRICULA, matricula);
         valores.put(DBHelper.CPF, cpf);
         valores.put(DBHelper.CURSO, curso);
-        valores.put(DBHelper.CAMPUS, campus);
+        valores.put(DBHelper.MATRICULA, matricula);
         valores.put(DBHelper.EMAIL, email);
         valores.put(DBHelper.SENHA, senha);
         valores.put(DBHelper.IMAGEM, imagem);
@@ -82,7 +79,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor carregaDadosAprovados() {
         Cursor cursor;
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] campos = {DBHelper.NOME, DBHelper.MATRICULA, DBHelper.CPF, DBHelper.CURSO, DBHelper.CAMPUS, DBHelper.EMAIL, DBHelper.SENHA, DBHelper.IMAGEM, DBHelper.APROVADO};
+        String[] campos = {DBHelper.NOME, DBHelper.CPF, DBHelper.CURSO, DBHelper.MATRICULA, DBHelper.EMAIL, DBHelper.SENHA, DBHelper.IMAGEM, DBHelper.APROVADO};
         String where = DBHelper.APROVADO + "=" + 1;
         cursor = db.query(DBHelper.TABLE_NAME, campos, where, null, null, null, null, null);
 
@@ -128,7 +125,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Cursor carregaDadoById(int id) {
         Cursor cursor;
-        String[] campos = {DBHelper.NOME, DBHelper.MATRICULA, DBHelper.CPF, DBHelper.CURSO, DBHelper.CAMPUS, DBHelper.EMAIL, DBHelper.SENHA, DBHelper.IMAGEM, DBHelper.APROVADO};
+        String[] campos = {DBHelper.NOME, DBHelper.CPF, DBHelper.CURSO, DBHelper.MATRICULA, DBHelper.EMAIL, DBHelper.SENHA, DBHelper.IMAGEM, DBHelper.APROVADO};
         String where = DBHelper.ID + "=" + id;
         SQLiteDatabase db = this.getReadableDatabase();
         cursor = db.query(DBHelper.TABLE_NAME, campos, where, null, null, null, null, null);

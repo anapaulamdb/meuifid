@@ -66,7 +66,6 @@ public class TelaPrincipal extends AppCompatActivity {
         textCurso.setText(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.CURSO)));
         textMatricula.setText(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.MATRICULA)));
         textCPF.setText(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.CPF)));
-        textUnidade.setText(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.CAMPUS)));
         imageView.setImageBitmap(decodedByte);
        // textValidade.setText(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.)));
         //textValidade.setText("00/00/0000");

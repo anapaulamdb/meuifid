@@ -10,7 +10,7 @@ import com.example.meuid.R;
 public class Home extends AppCompatActivity {
 //    private ImageView code_qr;
 
-    Button cad;
+    Button recadastro;
     Button qr_code;
     Button id;
 
@@ -19,18 +19,20 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        cad = (Button) findViewById(R.id.bt_recadastro);
+        recadastro = (Button) findViewById(R.id.bt_recadastro);
         qr_code = (Button) findViewById(R.id.bt_qrcode);
         id = (Button) findViewById(R.id.bt_id);
 
         getSupportActionBar().hide();
+        Intent intent = getIntent();
+        int codigo_recebido = intent.getIntExtra("codigo", 0);
 
         // login
         id.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Home.this, TelaPrincipal.class);
-                intent.putExtra("codigo", 3);
+                intent.putExtra("codigo", codigo_recebido);
                 startActivity(intent);
             }
         });
@@ -38,6 +40,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Home.this, QrCode.class);
+                intent.putExtra("codigo", codigo_recebido);
                 startActivity(intent);
             }
         });

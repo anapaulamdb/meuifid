@@ -91,13 +91,12 @@
             android:textAlignment="textStart"
             android:textAllCaps="false"
             android:textSize="20sp"
-            android:visibility="visible"
+            android:text="@string/gerar_qr_co"
             app:layout_constraintEnd_toEndOf="@+id/containerComponents"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/containerComponents"
-            tools:ignore="TextContrastCheck"
-            tools:text="@string/gerar_qr_co" />
+            tools:ignore="TextContrastCheck" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_id"

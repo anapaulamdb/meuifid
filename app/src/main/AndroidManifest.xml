@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +16,7 @@
         android:theme="@style/Theme.MEUID"
         tools:targetApi="31">
         <activity
-            android:name=".activityViews.Pendentes"
+            android:name=".activityViews.LeitorQRcode"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -23,6 +24,7 @@
         </activity>
         <activity
             android:name=".activityViews.Aprovados"
+            android:screenOrientation="portrait"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -77,11 +79,12 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".activityViews.Home"
+        <activity
+            android:name=".activityViews.Home"
             android:exported="false">
-        <meta-data
-            android:name="android.app.lib_name"
-            android:value="" />
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
     </application>
 

@@ -38,6 +38,7 @@ public class FormularioCadast extends AppCompatActivity {
     EditText matricula;
     EditText edit_email;
     EditText edit_senha;
+    EditText edit_senhaCp;
     ImageView uploadImage;
     ImageView imgSelected;
     Button bt_cadastrar;
@@ -53,19 +54,20 @@ public class FormularioCadast extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_cadast);
 
-        //getSupportActionBar().hide();
+        getSupportActionBar().hide();
         // imagem
-//        uploadImg = findViewById(R.id.uploadImage);
-//        photo = findViewById(R.id.imgSelected);
+        uploadImg = findViewById(R.id.uploadImage);
+        photo = findViewById(R.id.imgSelected);
 
         // database
         edit_nome = (EditText) findViewById(R.id.edit_nome);
-        //cpf = (EditText) findViewById(R.id.cpf);
+        cpf = (EditText) findViewById(R.id.cpf);
         matricula = (EditText) findViewById(R.id.matricula);
        // unidade = (EditText) findViewById(R.id.unidade);
         edit_email = (EditText) findViewById(R.id.edit_email);
         edit_senha = (EditText) findViewById(R.id.edit_senha);
-        //curso = (EditText) findViewById(R.id.curso);
+        edit_senhaCp = (EditText) findViewById(R.id.edit_senhaCp);
+        curso = (EditText) findViewById(R.id.curso);
         uploadImage = (ImageView) findViewById(R.id.uploadImage);
         imgSelected = (ImageView) findViewById(R.id.imgSelected);
         bt_cadastrar = (Button) findViewById(R.id.bt_cadastrar);
@@ -95,8 +97,8 @@ public class FormularioCadast extends AppCompatActivity {
                 if (edit_nome.getText().toString().equals("") || cpf.getText().toString().equals("") ||matricula.getText().toString().equals("") ||
                         curso.getText().toString().equals("") || edit_email.getText().toString().equals("") ||
                         edit_senha.getText().toString().equals("")){
-                    //|| img.getText().toString().equals("")) ; || imgSelected.getBackground() == null
-                    Toast.makeText(getApplicationContext(), "Por favor, preencha todos os campos.", Toast.LENGTH_LONG).show();
+                    //|| img.getText().toString().equals("")) ; || imgSelected.getBackground() == null //imgSelected.getDrawable() != null
+                    Toast.makeText(getApplicationContext(), "Por favor, preencha todos os campos e anexe uma imagem que o identifique.", Toast.LENGTH_LONG).show();
                 } else {
                     String resultado;
                     DBHelper crud = new DBHelper(getBaseContext());
@@ -109,7 +111,7 @@ public class FormularioCadast extends AppCompatActivity {
                     String fotoSaida = Base64.encodeToString(img, Base64.DEFAULT);
 
 
-                    resultado = crud.insereDado(edit_nome.getText().toString(), Integer.valueOf(matricula.getText().toString()), cpf.getText().toString(), curso.getText().toString(), unidade.getText().toString(), edit_email.getText().toString(), edit_senha.getText().toString(), fotoSaida, 0);
+                    resultado = crud.insereDado(edit_nome.getText().toString(), cpf.getText().toString(), curso.getText().toString(), Integer.valueOf(matricula.getText().toString()), edit_email.getText().toString(), edit_senha.getText().toString(), fotoSaida, 0);
                     Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
                     limpaFormulario();
                     abrirDialogo();
@@ -190,12 +192,11 @@ public class FormularioCadast extends AppCompatActivity {
     private void limpaFormulario() {
         edit_nome.setText("");
         edit_nome.requestFocus();
-        matricula.setText("");
+        cpf.setText("");
         curso.setText("");
-        unidade.setText("");
+        matricula.setText("");
         edit_email.setText("");
         edit_senha.setText("");
-        cpf.setText("");
         imgSelected.setImageDrawable(null);
     }
 }
