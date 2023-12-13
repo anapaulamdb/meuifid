@@ -4,7 +4,6 @@ public class Aluno {
     String nome;
     String cpf;
     String curso;
-    String campus;
     String email;
     String senha;
     byte[] imagem;
@@ -13,7 +12,7 @@ public class Aluno {
     Integer aprovado;
 
     public Aluno(){}
-    public Aluno(String nome, Integer matricula, String cpf, String curso, String campus, String email, String senha, String imagem, Integer id, Integer aprovado) {}
+    public Aluno(String nome, String cpf, String curso, Integer matricula, String email, String senha, String imagem, Integer id, Integer aprovado) {}
 
 
     public String getNome() {
@@ -40,15 +39,7 @@ public class Aluno {
         this.curso = curso;
     }
 
-    public String getCampus() {
-        return campus;
-    }
-
-    public void setCampus(String campus) {
-        this.campus = campus;
-    }
-
-    public String getEmail() {
+   public String getEmail() {
         return email;
     }
 

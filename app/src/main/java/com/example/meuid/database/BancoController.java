@@ -8,16 +8,15 @@ public class BancoController {
     private DBHelper banco;
     private SQLiteDatabase db;
 
-    public String insereDado(String nome, Integer matricula, String cpf, String curso, String campus, String email, String senha, String imagem, Integer aprovado) {
+    public String insereDado(String nome, String cpf, String curso, Integer matricula, String email, String senha, String imagem, Integer aprovado) {
         ContentValues valores = new ContentValues();
         SQLiteDatabase db = banco.getWritableDatabase();
         long resultado;
 
         valores.put(banco.NOME, nome);
-        valores.put(banco.MATRICULA, matricula);
         valores.put(banco.CPF, cpf);
         valores.put(banco.CURSO, curso);
-        valores.put(banco.CAMPUS, campus);
+        valores.put(banco.MATRICULA, matricula);
         valores.put(banco.EMAIL, email);
         valores.put(banco.SENHA, senha);
         valores.put(banco.IMAGEM, imagem);
@@ -48,7 +47,7 @@ public class BancoController {
 
     public Cursor carregaDadoById(int id){
         Cursor cursor;
-        String[] campos =  {banco.MATRICULA, banco.CPF, banco.CURSO, banco.CAMPUS, banco.EMAIL, banco.SENHA, banco.IMAGEM, banco.APROVADO};
+        String[] campos =  {banco.CPF, banco.CURSO, banco.MATRICULA, banco.EMAIL, banco.SENHA, banco.IMAGEM, banco.APROVADO};
         String where = banco.ID + "=" + id;
         db = banco.getReadableDatabase();
         cursor = db.query(banco.TABLE_NAME,campos,where, null, null, null, null, null);
@@ -84,4 +83,4 @@ public class BancoController {
     }
 }
 
-//String nome, Integer matricula, String cpf, String curso, String campus, String email, String senha, String imagem, Integer aprovado)
+//String nome, Integer matricula, String cpf, String curso, String email, String senha, String imagem, Integer aprovado)

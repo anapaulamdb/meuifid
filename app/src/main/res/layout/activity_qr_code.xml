@@ -1,24 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+ <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/background"
+    android:backgroundTint="#E8F2E8"
     tools:context=".activityViews.QrCode">
 
-
     <ImageView
-        android:id="@+id/log"
-        android:layout_width="188dp"
-        android:layout_height="174dp"
+        android:id="@+id/logo"
+        android:layout_width="167dp"
+        android:layout_height="54dp"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.007" />
+        app:layout_constraintVertical_bias="0.048" />
 
+  <View
+      android:id="@+id/containerQR"
+      style="@style/ContCard"
+      android:layout_width="300dp"
+      android:layout_height="380dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.594"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.552" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+     <ImageView
+         android:id="@+id/imgQRCode"
+         android:layout_width="300dp"
+         android:layout_height="300dp"
+         app:layout_constraintBottom_toBottomOf="@+id/containerQR"
+         app:layout_constraintEnd_toEndOf="@+id/containerQR"
+         app:layout_constraintHorizontal_bias="0.0"
+         app:layout_constraintStart_toStartOf="@+id/containerQR"
+         app:layout_constraintTop_toTopOf="@+id/containerQR"
+         app:layout_constraintVertical_bias="0.45"
+         tools:srcCompat="@tools:sample/avatars" />
+
+     <ImageView
+         android:id="@+id/sair"
+         android:layout_width="37dp"
+         android:layout_height="36dp"
+         android:layout_marginStart="356dp"
+         android:layout_marginTop="32dp"
+         android:src="@drawable/bt_sair"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+
+ </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
