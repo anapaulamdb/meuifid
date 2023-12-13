@@ -120,5 +120,15 @@
             app:layout_constraintTop_toBottomOf="@+id/bt_qrcode"
             tools:ignore="TextContrastCheck" />
 
+        <ImageView
+            android:id="@+id/sair"
+            android:layout_width="20dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="356dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/bt_sair"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

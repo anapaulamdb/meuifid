@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.graphics.Color;
 import android.widget.Button;
@@ -21,26 +22,37 @@ import com.example.meuid.R;
 
 
 public class QrCode extends AppCompatActivity {
-
     EditText editQRCode;
     Button btnGerarQRCode;
     ImageView imgQRCode;
     Cursor cursor;
+    private ImageView sair;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_code);
 
+        sair = (ImageView) findViewById(R.id.sair);
+
         DBHelper db = new DBHelper(getBaseContext());
         Intent intent = getIntent();
         int temp = intent.getIntExtra("codigo", 0);
         cursor = db.carregaDadoById(temp);
 
-        String texto =  "Aluno(a) " + cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.NOME)) + " é aluno do curso " + cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.CURSO));
+        String texto =  "Sucesso! Aluno(a) " + cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.NOME)) + " é aluno do curso " + cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.CURSO)) + " e tem vínculo com a Instituição";
 
         initComponentes();
         gerarQRCode(texto);
+        sair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(QrCode.this, Home.class);
+                intent.putExtra("codigo", temp);
+                startActivity(intent);
+            }
+        });
        // gerarQRCode(editQRCode.getText().toString());
 
    /* ORIGIN
@@ -56,7 +68,6 @@ public class QrCode extends AppCompatActivity {
                 }
             }
         });*/
-
     }
 
     private void initComponentes() {

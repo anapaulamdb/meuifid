@@ -27,17 +27,39 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.048" />
 
-    <ImageView
-        android:id="@+id/imgQRCode"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        app:layout_constraintVertical_bias="0.284"
-        tools:srcCompat="@tools:sample/avatars" />
+  <View
+      android:id="@+id/containerQR"
+      style="@style/ContCard"
+      android:layout_width="300dp"
+      android:layout_height="380dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.594"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.552" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+     <ImageView
+         android:id="@+id/imgQRCode"
+         android:layout_width="300dp"
+         android:layout_height="300dp"
+         app:layout_constraintBottom_toBottomOf="@+id/containerQR"
+         app:layout_constraintEnd_toEndOf="@+id/containerQR"
+         app:layout_constraintHorizontal_bias="0.0"
+         app:layout_constraintStart_toStartOf="@+id/containerQR"
+         app:layout_constraintTop_toTopOf="@+id/containerQR"
+         app:layout_constraintVertical_bias="0.45"
+         tools:srcCompat="@tools:sample/avatars" />
+
+     <ImageView
+         android:id="@+id/sair"
+         android:layout_width="37dp"
+         android:layout_height="36dp"
+         android:layout_marginStart="356dp"
+         android:layout_marginTop="32dp"
+         android:src="@drawable/bt_sair"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+
+ </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

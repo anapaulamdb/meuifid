@@ -9,10 +9,8 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.meuid.R;
 import com.example.meuid.database.DBHelper;
@@ -27,7 +25,6 @@ public class TelaPrincipal extends AppCompatActivity {
     TextView textCurso;
     TextView textMatricula;
     TextView textCPF;
-    TextView textUnidade;
     TextView textValidade;
     Integer codigo;
     Cursor cursor;
@@ -38,17 +35,15 @@ public class TelaPrincipal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_principal);
+        setContentView(R.layout.activity_id_estudantil);
 
         getSupportActionBar().hide();
 
-        code_qr = (ImageView) findViewById(R.id.code_qr);
         sair = (ImageView) findViewById(R.id.sair);
         textNome = (TextView) findViewById(R.id.textNome);
         textCurso = (TextView) findViewById(R.id.textCurso);
         textMatricula = (TextView) findViewById(R.id.textMatricula);
         textCPF = (TextView) findViewById(R.id.textCPF);
-        textUnidade = (TextView) findViewById(R.id.textUnidade);
 
         imageView = (ImageView) findViewById(R.id.imageView);
 
@@ -70,20 +65,13 @@ public class TelaPrincipal extends AppCompatActivity {
        // textValidade.setText(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.)));
         //textValidade.setText("00/00/0000");
 
-        code_qr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(TelaPrincipal.this, QrCode.class);
-                startActivity(intent);
-            }
-        });
 
         sair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(TelaPrincipal.this, Login.class);
+                Intent intent = new Intent(TelaPrincipal.this, Home.class);
+                intent.putExtra("codigo", temp);
                 startActivity(intent);
             }
         });

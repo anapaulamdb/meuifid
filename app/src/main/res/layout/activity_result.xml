@@ -4,18 +4,32 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:backgroundTint="#E8F2E8"
-    tools:context=".activityViews.QrCode"
+    tools:context=".activityViews.LeitorQRcode"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <TextView
-        android:id="@+id/textViewResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/result"
+        android:layout_width="277dp"
+        android:layout_height="149dp"
+        android:layout_marginTop="152dp"
+        android:text=" "
+
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgSelected"
+        android:layout_width="182dp"
+        android:layout_height="184dp"
         android:layout_gravity="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
